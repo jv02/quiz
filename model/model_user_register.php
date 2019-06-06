@@ -3,9 +3,10 @@ include('../controller/users.php');
 $register = new users;
 
 extract($_POST);
-
-$query="insert into user values('','$username','$email','$password')";
-
-$register->register1($query);
+$query="INSERT INTO user (username,email,password) VALUES('$username','$email','$password')";
+if($register->register1($query))
+{
+	$register->url("../user_register.php?run=success");
+}
 
 ?>

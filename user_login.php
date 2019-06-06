@@ -43,7 +43,13 @@
 <section class="container section" id="login_form">
 	<div class="row">
 	<div class="col s12 l5 offset-l4" style="margin-top: 40px">
-		<form action="">
+		<?php 
+					if(isset($_GET['run'])&&$_GET['run']=="failed")
+					{
+						echo "<mark>Invalid Details</mark>";
+					}
+					?>
+		<form action="model/model_user_login.php" method="POST">
 			<div class="input-field">
 			<input type="email" name="email">
 			<label for="email">Email</label>
